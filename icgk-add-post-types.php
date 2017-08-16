@@ -11,58 +11,8 @@ License: GPL2
 
 // 登録するカスタムポストタイプの設定
 $post_types = array(
-	'topic' => array(
-		'label' => 'お知らせ',
-		'slug' => '',
-		'hierarchical' => false, // 固定ページ型：true、投稿型：false
-		'position' => 5,
-		'tax' => array(
-			't_name' => 'topictype',
-			't_label' => 'お知らせの分類',
-			't_slug' => '',
-			't_hierarchical' => true, // カテゴリー型：true、タグ型：false
-		),
-	),
-
-	'event' => array(
-		'label' => 'イベント',
-		'slug' => '',
-		'hierarchical' => false, // 固定ページ型：true、投稿型：false
-		'position' => 5,
-		'tax' => array(
-			't_name' => 'eventcategory',
-			't_label' => 'イベント分類',
-			't_slug' => 'event-category',
-			't_hierarchical' => true, // カテゴリー型：true、タグ型：false
-		),
-	),
-
-	'faq' => array(
-		'label' => 'Ｑ＆Ａ',
-		'slug' => '',
-		'hierarchical' => true, // 固定ページ型：true、投稿型：false
-		'position' => 5,
-		'tax' => '',
-	),
-
-	'oracle' => array(
-		'label' => 'オラクルワード',
-		'slug' => '',
-		'hierarchical' => true, // 固定ページ型：true、投稿型：false
-		'position' => 15,
-		'tax' => '',
-	),
-
-	'configtext' => array(
-		'label' => '設定テキスト',
-		'slug' => '',
-		'hierarchical' => true, // 固定ページ型：true、投稿型：false
-		'position' => 20,
-		'tax' => '',
-	),
-
-/*
-	'' => array(
+	array(
+		'name' => '',
 		'label' => '',
 		'slug' => '',
 		'hierarchical' => true, // 固定ページ型：true、投稿型：false
@@ -76,7 +26,6 @@ $post_types = array(
 			't_hierarchical' => true, // カテゴリー型：true、タグ型：false
 		),
 	),
-*/
 );
 
 function icgk_add_custom_post_type() {
