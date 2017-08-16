@@ -18,6 +18,18 @@ $post_types = array(
 		'hierarchical' => true, // 固定ページ型：true、投稿型：false
 		'position' => 5,
 		// 5:投稿の下、10:メディアの下、15:リンクの下、20:固定ページの下、25:コメントの下、60:外観の下、65:プラグインの下、70:ユーザーの下、75:ツールの下、80:設定の下、100:最下部に独立させる
+		'supports' => array(
+			'title',
+			'editor',
+			'thumbnail',
+			'custom-fields',
+			//'excerpt',
+			'author',
+			'page-attributes',
+			//'trackbacks',
+			//'comments',
+			//'revisions'
+		),
 		//'tax' => '',
 		'tax' => array(
 			't_name' => '',
@@ -34,8 +46,9 @@ function icgk_add_custom_post_type() {
 			$name = $ptype['name'];
 			$label = $ptype['label'];
 			$slug = $ptype['slug'];
-			$hier = $ptype['hier'];
-			$pos = $ptype['pos'];
+			$hier = $ptype['hierarchical'];
+			$pos = $ptype['position'];
+			$sup = $ptype['supports'];
 			if( $slug == '' ) $slug = $name;
 
 			// カスタムポストタイプの登録
@@ -50,18 +63,7 @@ function icgk_add_custom_post_type() {
 					'rewrite' => array('slug' => $slug),
 					'hierarchical' => $hier,
 					'menu_position' => $pos,
-					'supports' => array(
-						'title',
-						'editor',
-						'thumbnail',
-						'custom-fields',
-						//'excerpt',
-						'author',
-						'page-attributes',
-						//'trackbacks',
-						//'comments',
-						//'revisions'
-					),
+					'supports' => $sup,
 					'exclude_from_search' => true,
 				)
 			);
