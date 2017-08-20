@@ -63,7 +63,10 @@ function icgk_add_custom_post_type() {
     ),
 
   /* カスタムポストタイプ登録用のデフォルト形
+  // メニュー表示位置は下の通り（デフォルトはコメントの下）
+  // 5:投稿の下、10:メディアの下、15:リンクの下、20:固定ページの下、25:コメントの下、60:外観の下、65:プラグインの下、70:ユーザーの下、75:ツールの下、80:設定の下、100:最下部に独立させる
 
+    // 『ポストタイプ名』
     array(
       'name' => '',
       'label' => '',
@@ -92,13 +95,13 @@ function icgk_add_custom_post_type() {
       )
     ),
 
-  // メニュー表示位置は下の通り（デフォルトはコメントの下）
-  // 5:投稿の下、10:メディアの下、15:リンクの下、20:固定ページの下、25:コメントの下、60:外観の下、65:プラグインの下、70:ユーザーの下、75:ツールの下、80:設定の下、100:最下部に独立させる
   */
-  );
+  ); // end array($post_types)
 
   if( $post_types ) :
     foreach( $post_types as $ptype ) :
+
+      // ポストタイプ・データ設定
       $name = $ptype['name'];
       $label = $ptype['label'];
       $slug = $ptype['slug'];
@@ -124,6 +127,7 @@ function icgk_add_custom_post_type() {
       );
       register_post_type($name, $args);
 
+      // タクソノミー・データ設定
       if( $tax ) :
         $t_name = $tax['t_name'];
         $t_label = $tax['t_label'];
