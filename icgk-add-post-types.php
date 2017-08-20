@@ -3,7 +3,7 @@
 Plugin Name: ICGK Add Post Types
 Plugin URI: 
 Description: カスタムポストタイプをプラグイン編集により作成
-Version: 1.0.0
+Version: 1.0.1
 Author: ICHIGENKI
 Author URI: 
 License: GPL2
@@ -13,54 +13,6 @@ function icgk_add_custom_post_type() {
 
   // 登録するカスタムポストタイプの設定
   $post_types = array(
-    array(
-      'name' => 'contentpage',
-      'label' => 'コンテンツページ',
-      'slug' => 'content',
-      'hierarchical' => true, // 固定ページ型：true、投稿型：false
-      'position' => 5,
-      'supports' => array(
-        'title',
-        'editor',
-        'thumbnail',
-        'custom-fields',
-        //'excerpt',
-        'author',
-        'page-attributes',
-        //'trackbacks',
-        //'comments',
-        //'revisions'
-      ),
-      'search' => false, // 検索対象にしない：true、する：false
-      'tax' => '',
-    ),
-    array(
-      'name' => 'news',
-      'label' => 'お知らせ',
-      'slug' => 'topic',
-      'hierarchical' => false, // 固定ページ型：true、投稿型：false
-      'position' => 5,
-      'supports' => array(
-        'title',
-        'editor',
-        'thumbnail',
-        'custom-fields',
-        //'excerpt',
-        'author',
-        'page-attributes',
-        //'trackbacks',
-        //'comments',
-        //'revisions',
-      ),
-      'search' => false, // 検索対象にしない：true、する：false
-      //'tax' => '',
-      'tax' => array(
-        't_name' => 'newscat',
-        't_label' => 'お知らせ分類',
-        't_slug' => 'tclass',
-        't_hierarchical' => true, // カテゴリー型：true、タグ型：false
-      )
-    ),
 
   /* カスタムポストタイプ登録用のデフォルト形
   // メニュー表示位置は下の通り（デフォルトはコメントの下）
