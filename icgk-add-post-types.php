@@ -25,6 +25,7 @@ function icgk_add_custom_post_type() {
       'slug' => '',
       'hierarchical' => true, // 固定ページ型：true、投稿型：false
       'position' => 5, // メニュー表示位置
+      'icon' => 'dashicons-welcome-write-blog', // Dashicons
       'supports' => array(
         'title',
         'editor',
@@ -60,6 +61,7 @@ function icgk_add_custom_post_type() {
       if( $slug == '' ) $slug = $name;
       $hier = $ptype['hierarchical'];
       $pos = $ptype['position'];
+      $icon = $ptype['icon'];
       $sup = $ptype['supports'];
       $srch = $ptype['search'];
       $tax = $ptype['tax'];
@@ -73,7 +75,8 @@ function icgk_add_custom_post_type() {
         'public' => true,
         'rewrite' => array('slug' => $slug),
         'hierarchical' => $hier,
-        'menu_position' => $pos,
+        'menu_position' => intval($pos),
+        'menu_icon' => $icon,
         'supports' => $sup,
         'exclude_from_search' => $srch,
       );
